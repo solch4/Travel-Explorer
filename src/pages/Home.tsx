@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useAppSelector } from "../hooks/useAppSelector";
-import { getTravels } from "../features/travels/travelsSlice";
+import { getDestinations } from "../features/destinations/destinationsSlice";
 
 const Home = () => {
   const dispatch = useAppDispatch();
-  const { travels, error, loading } = useAppSelector((state) => state.travels);
+  const { destinations, error, loading } = useAppSelector((state) => state.destinations);
 
   useEffect(() => {
-    dispatch(getTravels());
+    dispatch(getDestinations());
   }, [dispatch]);
 
   if (loading) return <h1>Cargando destinos...</h1>;
@@ -16,15 +16,15 @@ const Home = () => {
 
   return (
     <>
-      <h1>Travels</h1>
-      {travels.map((travel) => (
-        <div key={travel.id}>
-          <img src={travel.image} alt={travel.name} />
-          <h1>{travel.name}</h1>
-          <p>{travel.description}</p>
-          <p>{travel.rating}</p>
-          <p>{travel.category}</p>
-          <p>{travel.location}</p>
+      <h1>Destinos</h1>
+      {destinations.map((destination) => (
+        <div key={destination.id}>
+          <img src={destination.image} alt={destination.name} />
+          <h1>{destination.name}</h1>
+          <p>{destination.description}</p>
+          <p>{destination.rating}</p>
+          <p>{destination.category}</p>
+          <p>{destination.location}</p>
         </div>
       ))}
     </>

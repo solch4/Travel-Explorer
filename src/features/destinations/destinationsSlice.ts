@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface Travel {
+interface Destination {
   id: string;
   name: string;
   location: string;
@@ -11,21 +11,21 @@ interface Travel {
   rating: number;
 }
 
-interface TravelsState {
-  travels: Travel[];
+interface DestinationsState {
+  destinations: Destination[];
   loading: boolean;
   error: null | string;
 }
 
-const initialState: TravelsState = {
-  travels: [],
+const initialState: DestinationsState = {
+  destinations: [],
   loading: false,
   error: null,
 };
 
-export const getTravels = createAsyncThunk("travels/getTravels", async () => {
+export const getDestinations = createAsyncThunk("destinations/getDestinations", async () => {
   try {
-    const { data } = await axios.get<Travel[]>("/travels");
+    const { data } = await axios.get<Destination[]>("/destinations");
     return data;
   } catch (error) {
     console.log(error);
@@ -33,25 +33,25 @@ export const getTravels = createAsyncThunk("travels/getTravels", async () => {
   }
 });
 
-export const travelsSlice = createSlice({
-  name: "travels",
+export const destinationsSlice = createSlice({
+  name: "destinations",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getTravels.pending, (state) => {
+      .addCase(getDestinations.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getTravels.fulfilled, (state, action) => {
+      .addCase(getDestinations.fulfilled, (state, action) => {
         state.loading = false;
-        state.travels = action.payload;
+        state.destinations = action.payload;
       })
-      .addCase(getTravels.rejected, (state, action) => {
+      .addCase(getDestinations.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Error al obtener los viajes";
       });
   },
 });
 
-export default travelsSlice.reducer;
+export default destinationsSlice.reducer;

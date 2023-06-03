@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import travelsReducer from "../features/travels/travelsSlice";
+import destinationsReducer from "../features/destinations/destinationsSlice";
 
 const rootReducer = combineReducers({
-  travels: travelsReducer
+  destinations: destinationsReducer
 });
 
 export default rootReducer;
