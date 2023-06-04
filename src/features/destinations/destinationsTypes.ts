@@ -9,6 +9,7 @@ export interface Destination {
 }
 
 export interface DestinationsState {
+  allDestinations: Destination[];
   destinations: Destination[];
   categories: string[];
   loading: boolean;

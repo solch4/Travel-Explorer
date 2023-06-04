@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createDestination, getDestinations } from "./destinationsActions";
-import { DestinationsState } from "./destinationsTypes";
+import { Destination, DestinationsState } from "./destinationsTypes";
 
 const initialState: DestinationsState = {
+  allDestinations: [],
   destinations: [],
   categories: [],
   loading: false,
@@ -12,7 +13,26 @@ const initialState: DestinationsState = {
 export const destinationsSlice = createSlice({
   name: "destinations",
   initialState,
-  reducers: {},
+  reducers: {
+    searchDestinations: (state, action) => {
+      // se pasan keyword, name y description a minús. si el usuario busca "PLAYA" aparecen "Playa", "playa", etc
+      const keyword = action.payload.toLowerCase();
+      // agrego destination al comienzo o al final según si la keyword está en el name o en la description.
+      // con esto se muestran primero las coincidencias con el name y luego con la description
+      const searchResults: Destination[] = [];
+      state.allDestinations.forEach((destination) => {
+        if (destination.name.toLowerCase().includes(keyword)) {
+          searchResults.unshift(destination);
+        } else if (destination.description.toLowerCase().includes(keyword)) {
+          searchResults.push(destination);
+        }
+      });
+      state.destinations = searchResults;
+    },
+    resetDestinations: (state) => {
+      state.destinations = state.allDestinations;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getDestinations.pending, (state) => {
@@ -26,6 +46,7 @@ export const destinationsSlice = createSlice({
         );
         const categories = [...allCategories];
         state.loading = false;
+        state.allDestinations = action.payload;
         state.destinations = action.payload;
         state.categories = categories;
       })
@@ -34,9 +55,12 @@ export const destinationsSlice = createSlice({
         state.error = action.error.message || "Error al obtener los viajes";
       })
       .addCase(createDestination.fulfilled, (state, action) => {
-        state.destinations.push(action.payload);
+        state.allDestinations.push(action.payload);
       });
   },
 });
+
+export const { searchDestinations, resetDestinations } =
+  destinationsSlice.actions;
 
 export default destinationsSlice.reducer;
