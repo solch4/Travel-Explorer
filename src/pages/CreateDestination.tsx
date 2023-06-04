@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import {
-  createDestination,
-  getDestinations,
-} from "../features/destinations/destinationsActions";
+import { createDestination } from "../features/destinations/destinationsActions";
 import { useAppDispatch } from "../hooks/useAppDispatch";
-import { useAppSelector } from "../hooks/useAppSelector";
+import { useDestinations } from "../hooks/useDestinations";
 import Field from "../components/Field";
 
 const CreateDestination = () => {
   const dispatch = useAppDispatch();
-  const { destinations, categories, error, loading } = useAppSelector(
-    (state) => state.destinations
-  );
-
+  const { categories, error, loading } = useDestinations();
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -36,10 +30,6 @@ const CreateDestination = () => {
       [name]: value,
     }));
   };
-
-  useEffect(() => {
-    if (!destinations.length) dispatch(getDestinations());
-  }, [destinations.length, dispatch]);
 
   if (loading) return <h1>Cargando formulario...</h1>;
   if (error) return <h1>Algo salió mal: {error}</h1>;

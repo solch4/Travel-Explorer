@@ -1,18 +1,8 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../hooks/useAppDispatch";
-import { useAppSelector } from "../hooks/useAppSelector";
-import { getDestinations } from "../features/destinations/destinationsActions";
+import { useDestinations } from "../hooks/useDestinations";
 
 const Home = () => {
-  const dispatch = useAppDispatch();
-  const { destinations, error, loading } = useAppSelector(
-    (state) => state.destinations
-  );
-
-  useEffect(() => {
-    if (!destinations.length) dispatch(getDestinations());
-  }, [destinations.length, dispatch]);
+  const { destinations, error, loading } = useDestinations();
 
   if (loading) return <h1>Cargando destinos...</h1>;
   if (error) return <h1>Algo salió mal: {error}</h1>;
