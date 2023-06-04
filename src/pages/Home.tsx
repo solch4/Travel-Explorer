@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useAppSelector } from "../hooks/useAppSelector";
-import { getDestinations } from "../features/destinations/destinationsSlice";
+import { getDestinations } from "../features/destinations/destinationsActions";
 
 const Home = () => {
   const dispatch = useAppDispatch();

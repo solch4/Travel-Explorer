@@ -3,7 +3,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import {
   createDestination,
   getDestinations,
-} from "../features/destinations/destinationsSlice";
+} from "../features/destinations/destinationsActions";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useAppSelector } from "../hooks/useAppSelector";
 import Field from "../components/Field";

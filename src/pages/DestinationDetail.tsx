@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getDetail } from "../features/destinationDetail/destinationDetailSlice";
+import { getDetail } from "../features/destinationDetail/destinationDetailActions";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useAppSelector } from "../hooks/useAppSelector";
 
