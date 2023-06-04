@@ -1,19 +1,7 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getDetail } from "../features/destinationDetail/destinationDetailActions";
-import { useAppDispatch } from "../hooks/useAppDispatch";
-import { useAppSelector } from "../hooks/useAppSelector";
+import { useDestinationDetail } from "../hooks/useDestinationDetail";
 
 const DestinationDetail = () => {
-  const dispatch = useAppDispatch();
-  const { destinationId } = useParams();
-  const { destination, error, loading } = useAppSelector(
-    (state) => state.destinationDetail
-  );
-
-  useEffect(() => {
-    if (destinationId) dispatch(getDetail(destinationId));
-  }, [dispatch, destinationId]);
+  const { destination, error, loading } = useDestinationDetail();
 
   if (loading) return <h1>Cargando detalles...</h1>;
   if (error) return <h1>Algo salió mal: {error}</h1>;
