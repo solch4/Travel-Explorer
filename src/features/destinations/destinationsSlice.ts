@@ -1,22 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-
-interface Destination {
-  id: string;
-  name: string;
-  location: string;
-  description: string;
-  image: string;
-  category: string;
-  rating: number;
-}
-
-interface DestinationsState {
-  destinations: Destination[];
-  categories: string[];
-  loading: boolean;
-  error: null | string;
-}
+import { createSlice } from "@reduxjs/toolkit";
+import { createDestination, getDestinations } from "./destinationsActions";
+import { DestinationsState } from "./destinationsTypes";
 
 const initialState: DestinationsState = {
   destinations: [],
@@ -24,34 +8,6 @@ const initialState: DestinationsState = {
   loading: false,
   error: null,
 };
-
-export const getDestinations = createAsyncThunk(
-  "destinations/getDestinations",
-  async () => {
-    try {
-      const { data } = await axios.get<Destination[]>("/destinations");
-      return data;
-    } catch (error) {
-      console.error(error);
-      throw new Error("Error al obtener los viajes");
-    }
-  }
-);
-
-export const createDestination = createAsyncThunk(
-  "destinations/createDestination",
-  async (destination: Destination) => {
-    try {
-      const { data } = await axios.post("/destinations", destination);
-      alert(data.message);
-      return destination;
-    } catch (error) {
-      console.error(error);
-      alert("Error al crear viaje");
-      throw new Error("Error al crear viaje");
-    }
-  }
-);
 
 export const destinationsSlice = createSlice({
   name: "destinations",

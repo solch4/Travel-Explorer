@@ -1,21 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-
-interface Destination {
-  id: string;
-  name: string;
-  location: string;
-  description: string;
-  image: string;
-  category: string;
-  rating: number;
-}
-
-interface DestinationDetailState {
-  destination: Destination;
-  loading: boolean;
-  error: null | string;
-}
+import { createSlice } from "@reduxjs/toolkit";
+import { getDetail } from "./destinationDetailActions";
+import { DestinationDetailState } from "./destinationDetailTypes";
 
 const initialState: DestinationDetailState = {
   destination: {
@@ -30,19 +15,6 @@ const initialState: DestinationDetailState = {
   loading: false,
   error: null,
 };
-
-export const getDetail = createAsyncThunk(
-  "destinations/getDetail",
-  async (id: string) => {
-    try {
-      const { data } = await axios.get<Destination>(`/destinations/${id}`);
-      return data;
-    } catch (error) {
-      console.error(error);
-      throw new Error("Error al obtener detalles");
-    }
-  }
-);
 
 export const destinationDetailSlice = createSlice({
   name: "destinationDetail",
