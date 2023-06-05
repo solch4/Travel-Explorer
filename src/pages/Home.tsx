@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useDestinations } from "../hooks/useDestinations";
 import { resetDestinations } from "../features/destinations/destinationsSlice";
 import SearchBar from "../components/SearchBar";
+import DestinationCard from "../components/DestinationCard";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,14 +24,7 @@ const Home = () => {
         </>
       ) : (
         destinations.map((destination) => (
-          <Link to={destination.id} key={destination.id}>
-            <img src={destination.image} alt={destination.name} />
-            <h1>{destination.name}</h1>
-            <p>{destination.description}</p>
-            <p>{destination.rating}</p>
-            <p>{destination.category}</p>
-            <p>{destination.location}</p>
-          </Link>
+          <DestinationCard key={destination.id} {...destination} />
         ))
       )}
     </>
