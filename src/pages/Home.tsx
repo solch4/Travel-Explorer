@@ -23,9 +23,11 @@ const Home = () => {
           </button>
         </>
       ) : (
-        destinations.map((destination) => (
-          <DestinationCard key={destination.id} {...destination} />
-        ))
+        <div className="grid gap-6 lg:grid-cols-3">
+          {destinations.map((destination) => (
+            <DestinationCard key={destination.id} {...destination} />
+          ))}
+        </div>
       )}
     </>
   );
