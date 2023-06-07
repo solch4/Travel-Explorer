@@ -6,9 +6,11 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }: Props) => {
   return (
-    <div className="lg:grid lg:grid-cols-4 lg:gap-6">
+    <div className="lg:grid lg:grid-cols-4">
       <Header />
-      <main className="lg:col-span-3">{children}</main>
+      <main className="lg:col-span-3 grid gap-4 lg:gap-8 p-4 lg:px-6 lg:py-10">
+        {children}
+      </main>
     </div>
   );
 };
