@@ -33,7 +33,7 @@ const CreateDestinationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="space-y-4" onSubmit={handleSubmit}>
       <Field
         type="text"
         label="Nombre"
@@ -62,9 +62,11 @@ const CreateDestinationForm = () => {
         setValue={handleChange}
         name="image"
       />
-      <div>
+      {/* select category */}
+      <div className="grid gap-2">
         <label htmlFor="category">Categoría</label>
         <select
+          className="w-full bg-transparent border border-neutral-700 p-4 rounded-2xl"
           value={formData.category}
           onChange={handleChange}
           name="category"
@@ -81,7 +83,13 @@ const CreateDestinationForm = () => {
           ))}
         </select>
       </div>
-      <button type="submit">Enviar</button>
+
+      <button
+        className="w-full bg-primary-500 hover:bg-primary-600 text-primary-50 font-bold p-4 rounded-2xl transition"
+        type="submit"
+      >
+        Enviar
+      </button>
     </form>
   );
 };
