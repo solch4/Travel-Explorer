@@ -4,6 +4,7 @@ import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useDestinations } from "../hooks/useDestinations";
 import { createDestination } from "../features/destinations/destinationsActions";
 import Field from "../components/Field";
+import BigButton from "./BigButton";
 
 const CreateDestinationForm = () => {
   const dispatch = useAppDispatch();
@@ -84,12 +85,7 @@ const CreateDestinationForm = () => {
         </select>
       </div>
 
-      <button
-        className="w-full bg-primary-500 hover:bg-primary-600 text-primary-50 font-bold p-4 rounded-2xl transition"
-        type="submit"
-      >
-        Enviar
-      </button>
+      <BigButton type="submit">Enviar</BigButton>
     </form>
   );
 };

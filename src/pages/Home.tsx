@@ -3,6 +3,7 @@ import { useDestinations } from "../hooks/useDestinations";
 import { resetDestinations } from "../features/destinations/destinationsSlice";
 import SearchBar from "../components/SearchBar";
 import DestinationCard from "../components/DestinationCard";
+import BigButton from "../components/BigButton";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -13,14 +14,27 @@ const Home = () => {
 
   return (
     <>
-      <h1>Destinos</h1>
-      <SearchBar />
+      <h1 className="text-neutral-900 text-3xl lg:text-4xl font-bold">
+        Explorar destinos
+      </h1>
+      <div className="lg:grid lg:grid-cols-3 lg:gap-6">
+        <div className="col-span-2">
+          <SearchBar />
+        </div>
+      </div>
       {!destinations.length ? (
         <>
-          <h1>No se encontraron coincidencias</h1>
-          <button onClick={() => dispatch(resetDestinations())}>
-            Cargar todos los destinos
-          </button>
+          <h1 className="text-neutral-900 text-lg lg:text-xl font-bold">
+            No se encontraron coincidencias
+          </h1>
+          <div className="w-fit">
+            <BigButton
+              type="reset"
+              handleClick={() => dispatch(resetDestinations())}
+            >
+              Cargar todos los destinos
+            </BigButton>
+          </div>
         </>
       ) : (
         <div className="grid gap-6 lg:grid-cols-3">
