@@ -15,15 +15,15 @@ export const destinationsSlice = createSlice({
   initialState,
   reducers: {
     searchDestinations: (state, action) => {
-      // se pasan keyword, name y description a minús. si el usuario busca "PLAYA" aparecen "Playa", "playa", etc
+      // se pasan keyword, name y location a minús. si el usuario busca "PLAYA" aparecen "Playa", "playa", etc
       const keyword = action.payload.toLowerCase();
-      // agrego destination al comienzo o al final según si la keyword está en el name o en la description.
-      // con esto se muestran primero las coincidencias con el name y luego con la description
+      // agrego destination al comienzo o al final según si la keyword está en el name o en la location.
+      // con esto se muestran primero las coincidencias con el name y al final con la location
       const searchResults: Destination[] = [];
       state.allDestinations.forEach((destination) => {
         if (destination.name.toLowerCase().includes(keyword)) {
           searchResults.unshift(destination);
-        } else if (destination.description.toLowerCase().includes(keyword)) {
+        } else if (destination.location.toLowerCase().includes(keyword)) {
           searchResults.push(destination);
         }
       });

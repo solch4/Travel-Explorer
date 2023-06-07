@@ -8,17 +8,22 @@ const SearchBar = () => {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(searchDestinations(searchInput));
+    if (!searchInput.trim()) return;
+    dispatch(searchDestinations(searchInput.trim()));
   };
 
   return (
     <form className="relative flex items-center" onSubmit={handleSearch}>
+      <label htmlFor="searchInput" className="sr-only">
+        Buscar destino
+      </label>
       <input
         className="shadow-[0_0_4px_#0E0C0C50] placeholder:text-neutral-600 rounded-full py-2 md:py-3 pl-4 md:pl-6 pr-14 w-full"
         placeholder="Buscar destino..."
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
         type="search"
+        id="searchInput"
       />
       <button
         className="absolute right-0 -translate-x-2 bg-primary-500 text-primary-50 rounded-full p-2"
