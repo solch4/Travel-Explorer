@@ -2,10 +2,11 @@ import { useDestinations } from "../hooks/useDestinations";
 import CreateDestinationForm from "../components/CreateDestinationForm";
 
 const CreateDestination = () => {
-  const { error, loading } = useDestinations();
+  const { categories, error, loading } = useDestinations();
 
   if (loading) return <h1>Cargando formulario...</h1>;
   if (error) return <h1>Algo salió mal: {error}</h1>;
+  if (!categories.length) return null;
 
   return (
     <>
@@ -15,7 +16,7 @@ const CreateDestination = () => {
       <p>Llena el formulario con la información requerida.</p>
       <div className="lg:grid lg:grid-cols-9 lg:gap-6 lg:items-center">
         <div className="lg:col-span-4">
-          <CreateDestinationForm />
+          <CreateDestinationForm categories={categories} />
         </div>
         <div className="hidden lg:block lg:col-span-5">
           <img

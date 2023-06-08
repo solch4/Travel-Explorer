@@ -7,10 +7,11 @@ import BigButton from "../components/BigButton";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { destinations, error, loading } = useDestinations();
+  const { allDestinations, destinations, error, loading } = useDestinations();
 
   if (loading) return <h1>Cargando destinos...</h1>;
   if (error) return <h1>Algo salió mal: {error}</h1>;
+  if (!allDestinations.length) return null;
 
   return (
     <>

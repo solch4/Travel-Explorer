@@ -9,7 +9,7 @@ export interface Destination {
 }
 
 export interface DestinationDetailState {
-  destination: Destination;
+  destination: null | Destination;
   loading: boolean;
   error: null | string;
 }

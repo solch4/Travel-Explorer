@@ -3,13 +3,14 @@ import Star from "../components/Star";
 
 const DestinationDetail = () => {
   const { destination, error, loading } = useDestinationDetail();
-  const { name, image, description, rating, location } = destination;
-
-  const nOfRating: number[] = [];
-  for (let i = 1; i <= Math.round(rating); i++) nOfRating.push(i);
 
   if (loading) return <h1>Cargando detalles...</h1>;
   if (error) return <h1>Algo salió mal: {error}</h1>;
+  if (!destination) return null;
+
+  const { name, image, description, rating, location } = destination;
+  const nOfRating: number[] = [];
+  for (let i = 1; i <= Math.round(rating); i++) nOfRating.push(i);
 
   return (
     <>

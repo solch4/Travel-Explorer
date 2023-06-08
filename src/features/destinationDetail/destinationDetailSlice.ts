@@ -3,15 +3,7 @@ import { getDetail } from "./destinationDetailActions";
 import { DestinationDetailState } from "./destinationDetailTypes";
 
 const initialState: DestinationDetailState = {
-  destination: {
-    id: "",
-    name: "",
-    location: "",
-    description: "",
-    image: "",
-    category: "",
-    rating: 0,
-  },
+  destination: null,
   loading: false,
   error: null,
 };

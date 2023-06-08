@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../hooks/useAppDispatch";
-import { useDestinations } from "../hooks/useDestinations";
 import { createDestination } from "../features/destinations/destinationsActions";
 import Field from "../components/Field";
 import BigButton from "./BigButton";
 
-const CreateDestinationForm = () => {
+interface Props {
+  categories: string[];
+}
+
+const CreateDestinationForm: React.FC<Props> = ({ categories }: Props) => {
   const dispatch = useAppDispatch();
-  const { categories } = useDestinations();
 
   const [formData, setFormData] = useState({
     name: "",
