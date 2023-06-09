@@ -1,7 +1,7 @@
 interface Props {
   children: string;
   type?: "button" | "submit" | "reset" | undefined;
-  handleClick?: () => {};
+  handleClick?: () => void;
 }
 
 const BigButton: React.FC<Props> = ({ children, type, handleClick }: Props) => {
