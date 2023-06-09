@@ -5,7 +5,9 @@ import axios from "axios";
 import './index.css';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
-import store from "./app/store";
+import { setupStore } from "./app/store";
+
+const store = setupStore();
 
 axios.defaults.baseURL = "https://api.mockfly.dev/mocks/b0cdca18-facb-4a9f-a943-5154f890cb80/api"
 
