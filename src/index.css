@@ -6,6 +6,14 @@ html {
   @apply font-poppins text-neutral-700;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  @apply shadow-none outline-dotted outline-2 outline-primary-700 outline-offset-2;
+}
+
 .main-title {
   @apply text-neutral-900 text-3xl lg:text-4xl font-bold;
 }

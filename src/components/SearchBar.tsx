@@ -26,7 +26,7 @@ const SearchBar = () => {
         id="searchInput"
       />
       <button
-        className="absolute right-0 -translate-x-2 bg-primary-500 text-primary-50 rounded-full p-2"
+        className="absolute right-0 -translate-x-2 bg-primary-500 hover:bg-primary-600 text-primary-50 rounded-full p-2 transition"
         type="submit"
       >
         <svg

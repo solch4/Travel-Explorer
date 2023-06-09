@@ -26,14 +26,16 @@ const DestinationCard: React.FC<Props> = ({
     >
       <div className="h-full">
         <img
-          className="h-full object-cover rounded-2xl"
+          className="w-full h-full object-cover rounded-2xl"
           src={image}
           alt={name}
         />
       </div>
       {/* card body */}
       <div className="col-span-3 lg:col-span-1">
-        <h2 className="text-lg/5 text-neutral-900 font-bold">{name}</h2>
+        <h2 className="text-lg/tight lg:text-xl/tight text-neutral-900 font-bold">
+          {name}
+        </h2>
         <p className="text-base text-neutral-800">{location}</p>
         {/* rating */}
         <div className="flex items-end gap-2">
@@ -43,8 +45,10 @@ const DestinationCard: React.FC<Props> = ({
               <Star key={n} />
             ))}
           </div>
-          <span className="sr-only">Rating:</span>
-          <p className="text-xs/none">{rating}</p>
+          <p className="text-xs/none">
+            <span className="sr-only">Rating:</span>
+            {rating}
+          </p>
         </div>
       </div>
     </Link>
