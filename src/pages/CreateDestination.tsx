@@ -1,18 +1,17 @@
 import { useDestinations } from "../hooks/useDestinations";
 import CreateDestinationForm from "../components/CreateDestinationForm";
+import Loader from "../components/Loader";
 
 const CreateDestination = () => {
   const { categories, error, loading } = useDestinations();
 
-  if (loading) return <h1>Cargando formulario...</h1>;
+  if (loading) return <Loader>Cargando formulario...</Loader>;
   if (error) return <h1>Algo salió mal: {error}</h1>;
   if (!categories.length) return null;
 
   return (
     <>
-      <h1 className="text-neutral-900 text-3xl lg:text-4xl font-bold">
-        Agregar nuevo destino
-      </h1>
+      <h1 className="main-title">Agregar nuevo destino</h1>
       <p>Llena el formulario con la información requerida.</p>
       <div className="lg:grid lg:grid-cols-9 lg:gap-6 lg:items-center">
         <div className="lg:col-span-4">

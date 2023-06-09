@@ -1,10 +1,11 @@
 import { useDestinationDetail } from "../hooks/useDestinationDetail";
 import Star from "../components/Star";
+import Loader from "../components/Loader";
 
 const DestinationDetail = () => {
   const { destination, error, loading } = useDestinationDetail();
 
-  if (loading) return <h1>Cargando detalles...</h1>;
+  if (loading) return <Loader>Cargando detalles...</Loader>;
   if (error) return <h1>Algo salió mal: {error}</h1>;
   if (!destination) return null;
 
@@ -25,9 +26,7 @@ const DestinationDetail = () => {
       {/* detalles */}
       <div className="lg:grid lg:grid-cols-3 lg:gap-6">
         <div className="lg:col-span-2 space-y-2 lg:space-y-6">
-          <h1 className="text-neutral-900 text-3xl lg:text-4xl font-bold">
-            {name}
-          </h1>
+          <h1 className="main-title">{name}</h1>
           <p className="text-neutral-800 text-2xl lg:text-3xl font-bold">
             {location}
           </p>

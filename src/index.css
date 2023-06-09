@@ -5,3 +5,7 @@
 html {
   @apply font-poppins text-neutral-700;
 }
+
+.main-title {
+  @apply text-neutral-900 text-3xl lg:text-4xl font-bold;
+}
