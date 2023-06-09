@@ -32,6 +32,17 @@ export const destinationsSlice = createSlice({
     resetDestinations: (state) => {
       state.destinations = state.allDestinations;
     },
+    filterDestinations: (state, action) => {
+      const category = action.payload;
+      // si el usuario pide todas las categorías => muestra allDestinations. sino => lo filtra
+      const filteredDestinations =
+        category === "all"
+          ? state.allDestinations
+          : state.allDestinations.filter(
+              (destination) => destination.category === category
+            );
+      state.destinations = filteredDestinations;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -60,7 +71,7 @@ export const destinationsSlice = createSlice({
   },
 });
 
-export const { searchDestinations, resetDestinations } =
+export const { searchDestinations, resetDestinations, filterDestinations } =
   destinationsSlice.actions;
 
 export default destinationsSlice.reducer;

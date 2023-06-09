@@ -1,14 +1,19 @@
 import { useDispatch } from "react-redux";
 import { useDestinations } from "../hooks/useDestinations";
-import { resetDestinations } from "../features/destinations/destinationsSlice";
+import {
+  filterDestinations,
+  resetDestinations,
+} from "../features/destinations/destinationsSlice";
 import SearchBar from "../components/SearchBar";
 import DestinationCard from "../components/DestinationCard";
 import BigButton from "../components/BigButton";
 import Loader from "../components/Loader";
+import FilterDropdown from "../components/FilterDropdown";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { allDestinations, destinations, error, loading } = useDestinations();
+  const { allDestinations, destinations, categories, error, loading } =
+    useDestinations();
 
   if (loading) return <Loader>Cargando destinos...</Loader>;
   if (error) return <h1>Algo salió mal: {error}</h1>;
@@ -22,6 +27,11 @@ const Home = () => {
           <SearchBar />
         </div>
       </div>
+      <FilterDropdown
+        label="Filtrar por categoría"
+        options={categories}
+        onChange={(e) => dispatch(filterDestinations(e.target.value))}
+      />
       {!destinations.length ? (
         <>
           <h1 className="text-neutral-900 text-lg lg:text-xl font-bold">
