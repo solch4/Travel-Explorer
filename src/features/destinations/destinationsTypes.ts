@@ -6,6 +6,8 @@ export interface Destination {
   image: string;
   category: string;
   rating: number;
+  latitude: number;
+  longitude: number;
 }
 
 export interface DestinationsState {

@@ -22,7 +22,16 @@ const CreateDestinationForm: React.FC<Props> = ({ categories }: Props) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(createDestination({ ...formData, id: nanoid(), rating: 2.5 }));
+    // esto se cambiaría al usar una api real
+    dispatch(
+      createDestination({
+        ...formData,
+        id: nanoid(),
+        rating: 2.5,
+        latitude: 1,
+        longitude: 1,
+      })
+    );
   };
 
   const handleChange = (
