@@ -13,11 +13,11 @@ const CreateDestination = () => {
     <>
       <h1 className="main-title">Agregar nuevo destino</h1>
       <p>Llena el formulario con la información requerida.</p>
-      <div className="lg:grid lg:grid-cols-9 lg:gap-6 lg:items-center">
-        <div className="lg:col-span-4">
+      <div className="xl:grid xl:grid-cols-9 xl:gap-6 xl:items-center">
+        <div className="xl:col-span-4">
           <CreateDestinationForm categories={categories} />
         </div>
-        <div className="hidden lg:block lg:col-span-5">
+        <div className="hidden xl:block xl:col-span-5 p-10">
           <img
             className="w-full"
             src="./assets/illustration.svg"

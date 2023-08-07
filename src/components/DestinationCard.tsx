@@ -26,7 +26,7 @@ const DestinationCard: React.FC<Props> = ({
     >
       <div className="h-full">
         <img
-          className="w-full h-full object-cover rounded-2xl"
+          className="w-full h-full object-cover rounded-xl"
           src={image}
           alt={name}
         />

@@ -2,18 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  @apply font-poppins text-neutral-700;
+@layer base {
+  html {
+    @apply font-poppins bg-primary-50 text-neutral-700;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply shadow-none outline-dotted outline-2 outline-primary-700 outline-offset-2;
+  }
 }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  @apply shadow-none outline-dotted outline-2 outline-primary-700 outline-offset-2;
-}
+@layer components {
+  .main-title {
+    @apply text-neutral-900 text-3xl lg:text-4xl font-bold;
+  }
 
-.main-title {
-  @apply text-neutral-900 text-3xl lg:text-4xl font-bold;
+  .field {
+    @apply grid gap-1;
+  }
+
+  .field select,
+  .field input {
+    @apply w-full bg-white h-12 px-4 rounded-lg;
+  }
 }

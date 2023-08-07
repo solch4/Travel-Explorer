@@ -10,7 +10,7 @@ const Map: React.FC<Props> = ({ latitude, longitude }: Props) => {
     <MapContainer
       center={[latitude, longitude]}
       zoom={10}
-      style={{ height: "250px" }}
+      className="h-60 rounded-xl"
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Marker position={[latitude, longitude]} />

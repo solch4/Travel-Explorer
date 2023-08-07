@@ -18,7 +18,7 @@ const SearchBar = () => {
         Buscar destino
       </label>
       <input
-        className="shadow-[0_0_4px_#0E0C0C50] placeholder:text-neutral-600 rounded-full py-2 md:py-3 pl-4 md:pl-6 pr-14 w-full"
+        className="placeholder:text-neutral-600 rounded-full py-2 md:py-3 pr-4 md:pr-6 pl-12 md:pl-14 w-full"
         placeholder="Buscar destino..."
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
@@ -26,7 +26,7 @@ const SearchBar = () => {
         id="searchInput"
       />
       <button
-        className="absolute right-0 -translate-x-2 bg-primary-500 hover:bg-primary-600 text-primary-50 rounded-full p-2 transition"
+        className="absolute left-0 translate-x-1 md:translate-x-2 bg-primary-500 hover:bg-primary-600 text-primary-50 rounded-full p-2 transition"
         type="submit"
       >
         <svg

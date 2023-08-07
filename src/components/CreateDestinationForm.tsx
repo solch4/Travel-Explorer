@@ -75,10 +75,9 @@ const CreateDestinationForm: React.FC<Props> = ({ categories }: Props) => {
         name="image"
       />
       {/* select category */}
-      <div className="grid gap-2">
+      <div className="field">
         <label htmlFor="category">Categoría</label>
         <select
-          className="w-full bg-transparent border border-neutral-700 p-4 rounded-2xl"
           value={formData.category}
           onChange={handleChange}
           name="category"

@@ -6,10 +6,10 @@ interface Props {
 
 const FilterDropdown: React.FC<Props> = ({ label, options, onChange }: Props) => {
   return (
-    <div className="grid gap-2">
+    <div className="grid gap-1 place-items-start">
       <label htmlFor={label}>{label}</label>
       <select
-        className="sm:w-min bg-neutral-50 py-2 px-4 rounded-lg"
+        className="bg-white p-2 rounded-lg"
         onChange={onChange}
         id={label}
         defaultValue="DEFAULT"

@@ -19,7 +19,7 @@ const DestinationDetail = () => {
       {/* imagen */}
       <div className="h-56 lg:h-96">
         <img
-          className="w-full h-full object-cover rounded-2xl"
+          className="w-full h-full object-cover rounded-xl"
           src={image}
           alt={name}
         />
