@@ -5,6 +5,7 @@
 @layer base {
   html {
     @apply font-poppins bg-primary-50 text-neutral-700;
+    scrollbar-gutter: stable;
   }
 
   a:focus-visible,

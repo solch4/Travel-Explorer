@@ -24,7 +24,7 @@ const DestinationCard: React.FC<Props> = ({
       to={id}
       className="grid grid-cols-4 lg:grid-cols-1 gap-4 lg:gap-2 items-center"
     >
-      <div className="h-full">
+      <div className="h-[14vw] min-h-[4rem] max-lg:max-h-[6rem]">
         <img
           className="w-full h-full object-cover rounded-xl"
           src={image}
@@ -33,7 +33,7 @@ const DestinationCard: React.FC<Props> = ({
       </div>
       {/* card body */}
       <div className="col-span-3 lg:col-span-1">
-        <h2 className="text-lg/tight lg:text-xl/tight text-neutral-900 font-bold">
+        <h2 className="truncate text-lg/tight lg:text-xl/tight text-neutral-900 font-bold">
           {name}
         </h2>
         <p className="text-base text-neutral-800">{location}</p>
