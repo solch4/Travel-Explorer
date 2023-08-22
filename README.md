@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# Travel explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación web desarrollada con React que muestra información sobre destinos turísticos utilizando una [Mock API](https://www.mockfly.dev/).
 
-## Available Scripts
+![travel-explorer](https://github.com/solch4/Travel-Explorer/assets/101352684/a2975647-f6ba-41be-94ab-1ecd4149f2dd)
 
-In the project directory, you can run:
+## Características
 
-### `npm start`
+- Muestra destinos turísticos e información detallada de cada uno, incluyendo el nombre, imagen, ubicación, rating y un enlace a la página de detalles de cada destino con su descripción y un mapa interactivo.
+- Permite filtrar los destinos por categoría (playa, montaña, ciudad, bosque).
+- Permite buscar destinos por nombre y ubicación.
+- Creación de tu propio destino turístico.
+- Diseño responsive para una experiencia de usuario agradable.
+- Navegación entre páginas utilizando React Router.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologías
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+La aplicación se encuentra desarrollada con TypeScript, React, React Router, Redux toolkit y Tailwind CSS. Tests hechos con Jest y Testing library.
 
-### `npm test`
+## Links
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Demo: podés ver una demostración de la aplicación [aquí](https://travel-explorer-solch4.vercel.app/).
+- Diseño: el diseño visual de la aplicación fue creado utilizando Figma. Podés verlo [aquí](https://www.figma.com/file/FXYNW4QSCwQ2MT1xDMw3uV/Travel-explorer?type=design&node-id=0%3A1&mode=design&t=Q68dkhfov008b0XL-1).
 
-### `npm run build`
+## Instalación
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clona este repositorio en tu máquina local.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`git clone https://github.com/solch4/Travel-Explorer.git`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Entra al directorio del proyecto.
 
-### `npm run eject`
+`cd Travel-Explorer`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Instala las dependencias del proyecto.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm install`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Inicia la aplicación.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`npm start`
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
