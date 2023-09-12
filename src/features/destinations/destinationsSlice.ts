@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createDestination, getDestinations } from "./destinationsActions";
-import { Destination, DestinationsState } from "./destinationsTypes";
+import { DestinationsState } from "./destinationsTypes";
 
 const initialState: DestinationsState = {
   allDestinations: [],
