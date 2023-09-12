@@ -33,7 +33,10 @@ const DestinationCard: React.FC<Props> = ({
       </div>
       {/* card body */}
       <div className="col-span-3 lg:col-span-1">
-        <h2 className="truncate text-lg/tight lg:text-xl/tight text-neutral-900 font-bold">
+        <h2
+          title={name}
+          className="truncate text-lg/tight lg:text-xl/tight text-neutral-900 font-bold"
+        >
           {name}
         </h2>
         <p className="text-base text-neutral-800">{location}</p>
