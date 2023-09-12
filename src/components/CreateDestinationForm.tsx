@@ -5,6 +5,8 @@ import { createDestination } from "../features/destinations/destinationsActions"
 import Field from "../components/Field";
 import BigButton from "./BigButton";
 
+type FieldEvent = React.ChangeEvent<HTMLInputElement | HTMLSelectElement>;
+
 interface Props {
   categories: string[];
 }
@@ -34,9 +36,7 @@ const CreateDestinationForm: React.FC<Props> = ({ categories }: Props) => {
     );
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: FieldEvent) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -50,28 +50,28 @@ const CreateDestinationForm: React.FC<Props> = ({ categories }: Props) => {
         type="text"
         label="Nombre"
         value={formData.name}
-        setValue={handleChange}
+        onChange={handleChange}
         name="name"
       />
       <Field
         type="text"
         label="Lugar"
         value={formData.location}
-        setValue={handleChange}
+        onChange={handleChange}
         name="location"
       />
       <Field
         type="text"
         label="Descripción"
         value={formData.description}
-        setValue={handleChange}
+        onChange={handleChange}
         name="description"
       />
       <Field
         type="text"
         label="Link de la imagen"
         value={formData.image}
-        setValue={handleChange}
+        onChange={handleChange}
         name="image"
       />
       {/* select category */}

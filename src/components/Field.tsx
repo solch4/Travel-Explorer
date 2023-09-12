@@ -1,23 +1,16 @@
-interface Props {
-  type: HTMLInputElement["type"];
+import { useId } from "react";
+
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  name: string;
-  value: string;
-  setValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Field: React.FC<Props> = ({ type, label, name, value, setValue }: Props) => {
+const Field: React.FC<Props> = ({ label, ...inputProps }: Props) => {
+  const id = useId();
+
   return (
     <div className="field">
-      <label htmlFor={label}>{label}</label>
-      <input
-        value={value}
-        onChange={setValue}
-        id={label}
-        type={type}
-        required
-        name={name}
-      />
+      <label htmlFor={id}>{label}</label>
+      <input id={id} {...inputProps} />
     </div>
   );
 };
